@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="edu.zju.cims201.GOF.hibernate.zwjpojo.Unitdetail" table="Unitdetail">
+		<id name="id" type="int" column="id" >
+			<generator class="increment" />
+		</id>
+		<property name="unitname" column="unitname" type="string" length="250"  />
+		<property name="unitintro" column="unitintro" type="string" length="250" />
+		<property name="unitsynonyms" column="unitsynonyms" type="string" length="250" />
+		<property name="conversionfactor" column="conversionfactor" type="java.lang.Double" precision="38" scale="9" />
+		<property name="formula" column="formula" type="string" length="250" />
+		<property name="isreference" column="isreference" type="int" />
+		<property name="unitcategoryname" column="unitcategoryname" type="string" length="250" />
+		<property name="uuid" column="uuid" type="string" length="250" />
+		<many-to-one name="unitcategory" column="unitcategoryid" not-null="true" 
+			class="edu.zju.cims201.GOF.hibernate.zwjpojo.Unitcategory">
+		</many-to-one>
+	</class>
+</hibernate-mapping>

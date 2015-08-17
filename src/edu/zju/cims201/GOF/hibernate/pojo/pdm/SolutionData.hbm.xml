@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+        <!-- edu.zju.cims201.GOF.hibernate.pojo.Comment root -->
+        <class name="edu.zju.cims201.GOF.hibernate.pojo.pdm.SolutionData" table="SolutionData">
+                <id name="id" type="java.lang.Long" column="id">
+                        <generator class="increment"/>
+                </id>
+               
+                <property name="solutionUUID" column="solutionUUID" type="string" length="800"/>
+                <property name="moduleUUID" column="moduleUUID" type="string" length="800"/>
+                <property name="datasetUUID" column="datasetUUID" type="string" length="800"/>
+                <property name="branchUUID" column="branchUUID" type="string" length="800"/>
+        </class>
+</hibernate-mapping>

@@ -1,0 +1,44 @@
+package edu.zju.cims201.GOF.dao.pdmprivilege;
+
+import java.util.List;
+
+public class FlowDTO {
+	
+	private Long id;
+	
+	private String status;
+	
+	private List<FlowNodeDTO> nodes ;
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public List<FlowNodeDTO> getNodes() {
+		return nodes;
+	}
+
+	public void setNodes(List<FlowNodeDTO> nodes) {
+		this.nodes = nodes;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+
+	
+	
+	
+	
+	
+
+}

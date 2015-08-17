@@ -1,0 +1,29 @@
+Dao中：（持久层）
+	最基本的增删改查，一项操作，数据库中的一条记录
+	select
+	update
+	insert
+	delete
+	
+Service中：（业务层）
+	一系列的执行操作，基本单位是事务
+	转账（） {
+		查询，A >=100; //select
+		A账户 - 100； //update
+		B账户 + 100； //update
+		转账记录；  //update
+	}
+	
+component/service  没有区别
+resource/...   没有区别的
+Transactional   业务层进行注解的
+
+
+struts里的action
+@component
+	service里面定义的bean注入进去的
+	Scope("prototype") ：单例模式
+	
+	
+1、action命名一个大写字母，如GoaldefinitionAction，否则出错
+2、pojo还是自己编写

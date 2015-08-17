@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<!-- edu.zju.cims201.GOF.hibernate.pojo.Author root -->
+	<class name="edu.zju.cims201.GOF.hibernate.pojo.BaseModule" table="BaseModule" lazy="true">
+		<id name="id" type="int" column="id">
+			<generator class="increment"/>
+		</id>
+	    <property name="name" column="name" type="string"/>
+	    <property name="note" column="note" type="string"/>
+	    <property name="version" column="version" type="string"/>
+	    <property name="createdate" column="createdate" type="timestamp"/>
+	    <property name="createuserid" column="createuserid" type="java.lang.Integer"/>
+	    <property name="moduledir" column="moduledir" type="string"/>
+	    <property name="XmlFileName" column="XmlFileName" type="string"/>
+	    <property name="moduleUUID" column="moduleUUID" type="string"/>
+		 <joined-subclass name="edu.zju.cims201.GOF.hibernate.pojo.LccModule" table="lccModule">
+			<key column="id"/>
+			<property name="branchUUID" column="branchUUID" type="string"/>
+			<property name="hasreference" column="hasreference" type="int"/>
+			<many-to-one name="component" class="edu.zju.cims201.GOF.hibernate.pojo.Component" column="componentid"></many-to-one>
+	        <many-to-one name="parent" class="edu.zju.cims201.GOF.hibernate.pojo.LccModule" column="parentid"></many-to-one>
+			 <set name="lccModules" table="lccModule" cascade="all">
+                        <key column="parentid"/>
+                        <one-to-many class="edu.zju.cims201.GOF.hibernate.pojo.LccModule"/>
+                </set>
+         <set name="lccprocessTemplates" table="ProcessTemplate" lazy="false" cascade="save-update,persist" inverse="false">
+             <key column="moduleid"/>
+             <one-to-many class="edu.zju.cims201.GOF.hibernate.pojo.LccProcessTemplate" />
+        	 </set>
+            <property name="name" column="name" type="string"/>
+            <property name="processid" column="processid" type="string"/>
+            <property name="levelid" column="levelid" type="string"/>
+            <property name="parentlevelid" column="parentlevelid" type="string"/>
+            <property name="referbranchUUID" column="referbranchUUID" type="string"/>
+            <property name="refermoduleUUID" column="refermoduleUUID" type="string"/>
+            <property name="isparent" column="isparent" type="int"/>
+		</joined-subclass>
+	</class>
+</hibernate-mapping>

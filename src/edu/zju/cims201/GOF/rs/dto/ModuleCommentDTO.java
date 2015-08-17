@@ -1,0 +1,107 @@
+package edu.zju.cims201.GOF.rs.dto;
+
+import java.util.Set;
+import java.util.TreeSet;
+
+public class ModuleCommentDTO implements Comparable<ModuleCommentDTO>{
+	private Long id;
+	private Integer branchid;
+	private ModuleCommentDTO commented;
+	private Set<ModuleCommentDTO> commentdtos = new TreeSet<ModuleCommentDTO>();
+	private String commenterName;
+	private String commenterpicpath;
+	private String content;
+	private String commmentTime;
+	private Integer supportVoteCount;
+	private Integer againstVoteCount;
+	private Integer heat;
+	private Integer isBest;//最佳答案
+    private Float rate;
+	public Float getRate() {
+		return rate;
+	}
+	public void setRate(Float rate) {
+		this.rate = rate;
+	}
+	public Set<ModuleCommentDTO> getCommentdtos() {
+		return commentdtos;
+	}
+	public void setCommentdtos(Set<ModuleCommentDTO> commentdtos) {
+		this.commentdtos = commentdtos;
+	}
+
+	public Integer getIsBest() {
+		return isBest;
+	}
+	public void setIsBest(Integer isBest) {
+		this.isBest = isBest;
+	}
+	public String getCommenterName() {
+		return commenterName;
+	}
+	public void setCommenterName(String commenterName) {
+		this.commenterName = commenterName;
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}	
+	public String getCommmentTime() {
+		return commmentTime;
+	}
+	public void setCommmentTime(String commmentTime) {
+		this.commmentTime = commmentTime;
+	}
+	public Integer getSupportVoteCount() {
+		return supportVoteCount;
+	}
+	public void setSupportVoteCount(Integer supportVoteCount) {
+		this.supportVoteCount = supportVoteCount;
+	}
+	public Integer getAgainstVoteCount() {
+		return againstVoteCount;
+	}
+	public void setAgainstVoteCount(Integer againstVoteCount) {
+		this.againstVoteCount = againstVoteCount;
+	}
+	public Integer getHeat() {
+		return heat;
+	}
+	public void setHeat(Integer heat) {
+		this.heat = heat;
+	}
+	public ModuleCommentDTO getCommented() {
+		return commented;
+	}
+	public void setCommented(ModuleCommentDTO commented) {
+		this.commented = commented;
+	}
+	public String getCommenterpicpath() {
+		return commenterpicpath;
+	}
+	public void setCommenterpicpath(String commenterpicpath) {
+		this.commenterpicpath = commenterpicpath;
+	}
+	
+	public Integer getBranchid() {
+		return branchid;
+	}
+	public void setBranchid(Integer branchid) {
+		this.branchid = branchid;
+	}
+	public int compareTo(ModuleCommentDTO o) {
+		
+		return commmentTime.compareTo(o.commmentTime);
+		
+	}
+
+}

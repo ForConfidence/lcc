@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="edu.zju.cims201.GOF.hibernate.zwjpojo.Wjbasematerial" table="wjbasematerial">
+		<id name="id" type="int" column="id" >
+			<generator class="increment" />
+		</id>
+		<property name="materialname" column="materialname" type="string" length="250"  />
+		<property name="firstcategory" column="firstcategory" type="string" length="250" />
+		<property name="subcategory" column="subcategory" type="string" length="250" />
+		<property name="materialintro" column="materialintro" type="string" length="250" />
+		<property name="materialunit" column="materialunit" type="string" length="250" />
+		<property name="materialprice" column="materialprice" type="string" length="250" />
+		<property name="UUID" column="UUID" type="string" length="250" />
+		<many-to-one name="materialCategory" column="categoryid" not-null="true" 
+			class="edu.zju.cims201.GOF.hibernate.zwjpojo.Wjmaterialcategory">
+		</many-to-one>
+	</class>
+</hibernate-mapping>

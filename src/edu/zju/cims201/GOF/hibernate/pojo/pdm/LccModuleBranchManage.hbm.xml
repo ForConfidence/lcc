@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<!-- edu.zju.cims201.GOF.hibernate.pojo.Author root -->
+	<class name="edu.zju.cims201.GOF.hibernate.pojo.pdm.LccModuleBranchManage" table="LccModuleBranchManage" lazy="true">
+		<id name="id" type="int" column="id">
+			<generator class="increment"/>
+		</id>
+	    <property name="name" column="name" type="string"/>
+	    <property name="note" column="note" type="string"/>
+	    <property name="createdate" column="createdate" type="timestamp"/>
+	    <property name="createuserid" column="createuserid" type="java.lang.Integer"/>
+	    <property name="moduledir" column="moduledir" type="string"/>
+	    <property name="parentUUID" column="parentUUID" type="string"/>
+	    <property name="branchUUID" column="branchUUID" type="string"/>
+	    <property name="isupload" column="isupload" type="java.lang.Integer"/>
+	    <property name="iscomplete" column="iscomplete" type="java.lang.Integer"/>
+        <property name="isbase" column="isbase" type="java.lang.Integer"/>
+        <property name="hasreference" column="hasreference" type="java.lang.Integer"/>
+         <many-to-one name="commentrecord" column="commentrecordID"
+			class="edu.zju.cims201.GOF.hibernate.pojo.pdm.ModuleCommentRecord"
+			cascade="all" update="true" unique="true" insert="true"
+			optimistic-lock="true" not-found="exception" embed-xml="true" />
+		<set name="comments" table="ModuleComment" lazy="true" cascade="all-delete-orphan"
+			sort="unsorted" inverse="false" mutable="true" optimistic-lock="true"
+			embed-xml="true">
+			<key column="branchID" on-delete="noaction" />
+			<one-to-many
+				class="edu.zju.cims201.GOF.hibernate.pojo.pdm.ModuleComment"
+				not-found="exception" embed-xml="true" />
+		</set>
+	</class>
+</hibernate-mapping>
